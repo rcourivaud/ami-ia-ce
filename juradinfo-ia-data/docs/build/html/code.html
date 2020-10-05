@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Data pipeline documentation &#8212; Documentation Juradinfo IA </title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="Welcome to Juradinfo IA’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="data-pipeline-documentation">
+<h1>Data pipeline documentation<a class="headerlink" href="#data-pipeline-documentation" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="module-Ocr">
+<span id="ocr-module"></span><h2>Ocr module<a class="headerlink" href="#module-Ocr" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Module containing the definition of the Ocr class.</p>
+<dl class="py class">
+<dt id="Ocr.Ocr">
+<em class="property">class </em><code class="sig-prename descclassname">Ocr.</code><code class="sig-name descname">Ocr</code><a class="headerlink" href="#Ocr.Ocr" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Class to manage OCR actions.</p>
+<dl class="py method">
+<dt id="Ocr.Ocr.create_folder">
+<em class="property">classmethod </em><code class="sig-name descname">create_folder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr.Ocr.create_folder" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Create a folder if it doesn’t exist</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Ocr.Ocr.nb_jpg_in_folder">
+<em class="property">classmethod </em><code class="sig-name descname">nb_jpg_in_folder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr.Ocr.nb_jpg_in_folder" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Return the number of jpg images in a specify folder</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Ocr.Ocr.ocr_image">
+<em class="property">classmethod </em><code class="sig-name descname">ocr_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr.Ocr.ocr_image" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Extract text from an image</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Ocr.Ocr.ocr_pdf_image">
+<em class="property">classmethod </em><code class="sig-name descname">ocr_pdf_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder_of_pdf</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">'.'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr.Ocr.ocr_pdf_image" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Extract a text from à pdf of images</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Ocr.Ocr.ocr_pdf_text">
+<em class="property">classmethod </em><code class="sig-name descname">ocr_pdf_text</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr.Ocr.ocr_pdf_text" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Extract text from pdf of text</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Ocr.Ocr.pdf2images">
+<em class="property">classmethod </em><code class="sig-name descname">pdf2images</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">folder_of_pdf</span></em>, <em class="sig-param"><span class="n">folder_of_images</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr.Ocr.pdf2images" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Convert a pdf file into set of jpg images, one image for one page of the pdf file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Ocr.Ocr.preprocess_image">
+<em class="property">classmethod </em><code class="sig-name descname">preprocess_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr.Ocr.preprocess_image" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Preprocess an image before OCR operation</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-Ocr_batch"></span><p>Contains definition of OcrConcurrent class.</p>
+<dl class="py class">
+<dt id="Ocr_batch.OcrConcurrent">
+<em class="property">class </em><code class="sig-prename descclassname">Ocr_batch.</code><code class="sig-name descname">OcrConcurrent</code><a class="headerlink" href="#Ocr_batch.OcrConcurrent" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Class to manage parallel execution of the OCR pipeline</p>
+<dl class="py method">
+<dt id="Ocr_batch.OcrConcurrent.concurrent_ocr">
+<em class="property">classmethod </em><code class="sig-name descname">concurrent_ocr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nb_thread</span></em>, <em class="sig-param"><span class="n">lst_filename</span></em>, <em class="sig-param"><span class="n">outdir</span><span class="o">=</span><span class="default_value">'data'</span></em>, <em class="sig-param"><span class="n">bool_db</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr_batch.OcrConcurrent.concurrent_ocr" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Run several threads, each thread for an image file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Ocr_batch.OcrConcurrent.concurrent_pdf2image">
+<em class="property">classmethod </em><code class="sig-name descname">concurrent_pdf2image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nb_thread</span></em>, <em class="sig-param"><span class="n">lst_path</span></em>, <em class="sig-param"><span class="n">img_folder</span><span class="o">=</span><span class="default_value">'data'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr_batch.OcrConcurrent.concurrent_pdf2image" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Run several threads, each thread for an image file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Ocr_batch.OcrConcurrent.worker">
+<em class="property">classmethod </em><code class="sig-name descname">worker</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id_thread</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr_batch.OcrConcurrent.worker" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Instructions runs by each thread</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Ocr_batch.OcrConcurrent.worker_df">
+<em class="property">classmethod </em><code class="sig-name descname">worker_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id_thread</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr_batch.OcrConcurrent.worker_df" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Instructions runs by each thread</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Ocr_batch.OcrConcurrent.worker_pdf2image">
+<em class="property">classmethod </em><code class="sig-name descname">worker_pdf2image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id_thread</span></em>, <em class="sig-param"><span class="n">img_folder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ocr_batch.OcrConcurrent.worker_pdf2image" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Instructions runs by each thread</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-pdf2imageBatch"></span><p>TODO : the goal of this scrip</p>
+<span class="target" id="module-pipelineOcerisation"></span><p>Execute OCR pipeline on files inside the input directory</p>
+</div>
+<div class="section" id="module-base.ConfigReader">
+<span id="base-module"></span><h2>Base module<a class="headerlink" href="#module-base.ConfigReader" title="Lien permanent vers ce titre">¶</a></h2>
+<dl class="py class">
+<dt id="base.ConfigReader.Config">
+<em class="property">class </em><code class="sig-prename descclassname">base.ConfigReader.</code><code class="sig-name descname">Config</code><a class="headerlink" href="#base.ConfigReader.Config" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Class to manage the conf file.</p>
+</dd></dl>
+
+<span class="target" id="module-base.db"></span><p>Contains definition of DataBase class.</p>
+<dl class="py class">
+<dt id="base.db.DataBase">
+<em class="property">class </em><code class="sig-prename descclassname">base.db.</code><code class="sig-name descname">DataBase</code><a class="headerlink" href="#base.db.DataBase" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Manage database actions</p>
+</dd></dl>
+
+<span class="target" id="module-base.utils"></span><p>Module to define usefull functions across the project;</p>
+<dl class="py function">
+<dt id="base.utils.get_logger">
+<code class="sig-prename descclassname">base.utils.</code><code class="sig-name descname">get_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logging_conf_path</span></em>, <em class="sig-param"><span class="n">logger_name</span></em>, <em class="sig-param"><span class="n">log_handler_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#base.utils.get_logger" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Returns the logger from the conf file after having created the log file handler.
+:param logging_conf_path: the logging config file path
+:param  logger_name: the name of the logger defined inside the config file
+:param log_handler_path: the file which will handle the log or sys.stdout</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-entities.page">
+<span id="entities-module"></span><h2>Entities module<a class="headerlink" href="#module-entities.page" title="Lien permanent vers ce titre">¶</a></h2>
+<dl class="py class">
+<dt id="entities.page.Page">
+<em class="property">class </em><code class="sig-prename descclassname">entities.page.</code><code class="sig-name descname">Page</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#entities.page.Page" title="Lien permanent vers cette définition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Juradinfo IA</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data pipeline documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-Ocr">Ocr module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-base.ConfigReader">Base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-entities.page">Entities module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="Chapitre précédent">Welcome to Juradinfo IA’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Starclay.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/code.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

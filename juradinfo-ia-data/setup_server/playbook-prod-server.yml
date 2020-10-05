@@ -1,0 +1,68 @@
+-
+  name: "Installation du serveur de production du CE"
+  hosts: localhost
+  vars:
+    packages:
+      - name: nodejs
+        required: True
+      - name: mariadb-server
+        required: True
+      - name: httpd
+        required: True
+      -  name: phpMyAdmin
+         required: True
+      - name: php
+        required: True
+      - name: php-mysql
+        required: True
+      - name: tesseract
+        required: True
+      - name: tesseract-langpack-fra
+        required: True
+      - name: php-pear
+        required: True
+      - name: php-devel
+        required: True
+      - name: gcc
+        required: True
+      - name: ImageMagick
+        required: False
+      - name: ImageMagick-devel
+        required: False
+      - name: ImageMagick-perl
+        required: False
+      - name: python3
+        required: True
+      - name: ghostscript
+        required: True
+      - name: poppler-utils
+        required: True
+
+  tasks:
+    -
+      name: "Installation de '{{item.name}}' sur le serveur de production CentOS7"
+      yum:
+        name: '{{item.name}}'
+        state: present
+      when: item.required == True
+      loop: "{{packages}}"
+
+    -
+      name: "Démarrer le serveur de base de données mariadb, s'il n'est pas démarré"
+      service:
+        name: mariadb
+        state: started
+
+    -
+      name: "Redemarrer le serveur web httpd"
+      service:
+        name: httpd
+        state: restarted
+
+    -
+      name: "Installer les packages python nécessaire à l'application"
+      command: python3 -m pip install -r requirements.txt
+    -
+      name: "Télécharger le modèle français pour spacy"
+      command: python3 -m spacy download fr_core_news_md
+
